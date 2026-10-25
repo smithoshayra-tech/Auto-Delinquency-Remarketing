@@ -1,0 +1,44 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@page { size: Letter; margin: 0.5in }
+body { font-family: Carlito, 'DejaVu Sans', sans-serif; color:#1a1a19; font-size: 10.5pt; line-height:1.38 }
+h1 { font-size: 19pt; margin:0 0 2px; color:#1F3864 } .sub { color:#6b6b68; margin-bottom:8px; font-size:10pt }
+h2 { font-size: 11.5pt; margin:10px 0 3px; color:#1F3864 }
+.kpis { display:flex; gap:8px; margin:8px 0 } .k { flex:1; border:1px solid #e6e6e3; border-radius:6px; padding:6px 8px }
+.k b { display:block; font-size:17pt; color:#2a78d6 } .k span { font-size:8.5pt; color:#6b6b68 }
+img { width:100% } .row { display:flex; gap:10px } .row img { width:50% }
+table { border-collapse:collapse; width:100%; font-size:9.5pt } td,th { border-bottom:1px solid #e6e6e3; padding:3px 5px; text-align:left; vertical-align:top }
+.small { font-size:8.5pt; color:#6b6b68 } .pb { page-break-before: always } ul { margin:3px 0 3px 16px; padding:0 }
+</style></head><body>
+<h1>Auto Delinquency Is at a Record, but It Is Not 2009</h1>
+<div class="sub">What it means for collections and used-vehicle remarketing | Data through 2026Q2 | Public data: NY Fed, FRED | Sharon Smith</div>
+<div class="kpis">
+<div class="k"><b>5.49%</b><span>of auto balance 90+ late (record 5.60% in 2026Q1; 2010: 5.27%)</span></div>
+<div class="k"><b>$94B</b><span>seriously delinquent, up 43% since end-2019</span></div>
+<div class="k"><b>38.1%</b><span>of 30+ inflow rolls to 90+ (4th highest of 94 quarters)</span></div>
+<div class="k"><b>13%</b><span>used prices below the level the 2022 vintage was written at</span></div>
+</div>
+<h2>The point of view</h2>
+<p>Fewer new loans are going seriously late than in 2009 (3.00% vs 3.48% annualized), credit mix is safer than 2006 (29% vs 44% subprime) and unemployment is 4.3%. Yet a record share of balances that go 30 days late now reaches 90+, and since mid-2024 the climb in the delinquent stock is 81% loans staying delinquent longer. That is a collections-effectiveness and remarketing-timing issue, and the 2021-2023 vintages sit on used prices that have fallen below origination levels.</p>
+<img src="/tmp/claude-0/-home-claude/4026eeca-b509-567f-a2e7-11d4bf6b25a5/scratchpad/proj/outputs/figures/fig01_stock_vs_flow.png" style="width:88%;display:block;margin:0 auto">
+<h2>What the data says</h2>
+<ul>
+<li><b>Inflow is 28% above 2019</b> (3.00% vs 2.35%) but flat since mid-2024 (up 4%).</li>
+<li><b>Persistence rebuilt</b> from 1.54 years (2024Q2) to 1.83; still below 2019 (2.02).</li>
+<li><b>Broad:</b> every age band is 21% to 33% above 2019. <b>Not unemployment:</b> 2009 inflow 3.24% came with 9.9% unemployment.</li>
+</ul>
+<div class="pb"></div>
+<div class="row"><img src="/tmp/claude-0/-home-claude/4026eeca-b509-567f-a2e7-11d4bf6b25a5/scratchpad/proj/outputs/figures/fig04_roll_rate.png"><img src="/tmp/claude-0/-home-claude/4026eeca-b509-567f-a2e7-11d4bf6b25a5/scratchpad/proj/outputs/figures/fig07_vintage_prices.png"></div>
+<h2>What to do</h2>
+<table><tr><th>Action</th><th>Why</th></tr>
+<tr><td>Lead collections KPI: 30-to-90 roll rate by vintage and score</td><td>Roll rate 38.1% vs 33.7% in 2019. Industry-scale, one point is about $1.3B a year reaching 90+; back to 2019 level is about $5.6B.</td></tr>
+<tr><td>Early outreach on 2021-2023 vintages with large payments</td><td>Prices -2% / -13% / -6% vs origination year; payment size explains about 40% of the rise (Fed Board, 2024).</td></tr>
+<tr><td>Plan remarketing capacity for later, lumpier inflow</td><td>Delinquent loans take longer to resolve (Philadelphia Fed, Apr 2026); persistence is rising again.</td></tr>
+<tr><td>Stress recoveries with a price grid, not a forecast</td><td>No public-data model beat "same as now" (-3% best). A further 10% price drop is $2.4B to $7.0B of collateral value depending on repossession share.</td></tr></table>
+<h2>Where I could be wrong</h2>
+<ul>
+<li>These are industry aggregates for all lenders, not any one company's book; treat them as hypotheses for loan-level data.</li>
+<li>Roll rate and persistence are ratios of aggregate flows. Used-vehicle CPI is a consumer index, not auction recovery value. The repossession share in the grid is an assumption.</li>
+<li>The Philadelphia Fed argues headline delinquency overstates distress; this brief agrees on mechanics and differs on what it means for operations.</li>
+</ul>
+<p class="small">Method: tidy parse of 5,715 NY Fed observations and 333 FRED months; 15 SQL validation checks (all pass; tested to fail on corrupted data); headline numbers recomputed independently in pandas; 4 of 4 figures match NY Fed publications. Code, data, Power BI tables and DAX are in the repository.</p>
+</body></html>

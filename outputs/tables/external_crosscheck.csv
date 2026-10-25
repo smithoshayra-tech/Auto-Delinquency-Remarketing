@@ -1,0 +1,5 @@
+metric,our_value,published_value,source,url,abs_diff,status
+"Auto flow into 90+ (annualized %), 2026Q2",3.0,3.0,NY Fed press release 2026-08-11,https://www.newyorkfed.org/newsevents/news/research/2026/20260811,0.0,MATCH
+"Auto flow into 90+ (annualized %), 2025Q2",2.93,2.93,NY Fed press release 2026-08-11,https://www.newyorkfed.org/newsevents/news/research/2026/20260811,0.0,MATCH
+"Auto loan balance, $T, 2026Q2",1.713,1.71,NY Fed HHDC landing page,https://www.newyorkfed.org/microeconomics/hhdc,0.003,MATCH
+"Auto originations, $B, 2026Q2",210.8,211.0,NY Fed HHDC 2026Q2 report,https://www.newyorkfed.org/medialibrary/interactives/householdcredit/data/pdf/hhdc_2026q2.pdf,0.2,MATCH

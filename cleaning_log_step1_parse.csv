@@ -1,0 +1,19 @@
+step,source,issue,action,cells_or_rows
+parse,NY Fed Page 3 Data,two-digit year labels like 03:Q1 and 99:Q2,converted to calendar year and quarter,94
+parse,NY Fed Page 3 Data,footnote rows inside the table,dropped,1
+parse,NY Fed Page 8 Data,two-digit year labels like 03:Q1 and 99:Q2,converted to calendar year and quarter,90
+parse,NY Fed Page 9 Data,two-digit year labels like 03:Q1 and 99:Q2,converted to calendar year and quarter,109
+parse,NY Fed Page 11 Data,two-digit year labels like 03:Q1 and 99:Q2,converted to calendar year and quarter,94
+parse,NY Fed Page 12 Data,two-digit year labels like 03:Q1 and 99:Q2,converted to calendar year and quarter,94
+parse,NY Fed Page 13 Data,two-digit year labels like 03:Q1 and 99:Q2,converted to calendar year and quarter,94
+parse,NY Fed Page 13 Data,empty cells (series not yet reported),"left as missing, not zero-filled",4
+parse,NY Fed Page 13 Data,footnote rows inside the table,dropped,1
+parse,NY Fed Page 14 Data,two-digit year labels like 03:Q1 and 99:Q2,converted to calendar year and quarter,94
+parse,NY Fed Page 14 Data,empty cells (series not yet reported),"left as missing, not zero-filled",4
+parse,NY Fed Page 14 Data,footnote rows inside the table,dropped,1
+parse,NY Fed Page 18 Data,two-digit year labels like 03:Q1 and 99:Q2,converted to calendar year and quarter,94
+parse,NY Fed Page 18 Data,thousands separators in numbers,"removed commas, cast to float",90
+parse,NY Fed Page 22 Data,two-digit year labels like 03:Q1 and 99:Q2,converted to calendar year and quarter,106
+parse,NY Fed Page 26 Data,two-digit year labels like 03:Q1 and 99:Q2,converted to calendar year and quarter,106
+filter,FRED,series start in 1947; NY Fed panel starts in 1999 (originations) and 2003 (delinquency),kept 1999-01 onward,624
+parse,FRED,"mixed frequencies in one wide file: the auto loan rate is quarterly, the rest monthly","kept the quarterly rate only in its reported months, no interpolation",222

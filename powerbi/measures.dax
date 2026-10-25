@@ -1,0 +1,29 @@
+// Measures for the auto-delinquency model. Relationship: dim_date[period_end] 1:* fact_quarterly[period_end]. Mark dim_date as the date table.
+Latest Quarter = MAX ( fact_quarterly[period_end] )
+
+Stock 90+ % = CALCULATE ( MAX ( fact_quarterly[stock90] ), fact_quarterly[period_end] = [Latest Quarter] )
+
+Inflow 90+ % = CALCULATE ( MAX ( fact_quarterly[flow90] ), fact_quarterly[period_end] = [Latest Quarter] )
+
+Roll Rate 30 to 90 =
+DIVIDE ( SUM ( fact_quarterly[flow90] ), SUM ( fact_quarterly[flow30] ) )   // use on a single quarter; do not sum across quarters
+
+Persistence Years =
+DIVIDE ( SUM ( fact_quarterly[stock90] ), SUM ( fact_quarterly[flow90] ) )   // single quarter only
+
+Inflow vs 2019 % =
+VAR cur = [Inflow 90+ %]
+VAR base = CALCULATE ( AVERAGE ( fact_quarterly[flow90] ), dim_date[year] = 2019 )
+RETURN DIVIDE ( cur - base, base )
+
+Seriously Delinquent $B = CALCULATE ( MAX ( fact_quarterly[seriously_delinquent_bn] ), fact_quarterly[period_end] = [Latest Quarter] )
+
+Roll Rate Rank (high = 1) =
+RANKX ( ALL ( fact_quarterly[period_end] ), CALCULATE ( [Roll Rate 30 to 90] ), , DESC )
+
+Annual $B Reaching 90+ per Roll Point =   // approximate: annualized 30+ inflow x current balance x 1%
+VAR bal = MAX ( fact_quarterly[auto_bal_tn] ) * 1000 * ( 1 - [Stock 90+ %] / 100 )
+RETURN SUM ( fact_quarterly[flow30] ) / 100 * bal * 0.01
+
+// Scenario table: fact_remarketing_sensitivity is a parameter grid, not a forecast.
+Collateral Value Hit $B = SUM ( fact_remarketing_sensitivity[collateral_value_hit_bn] )

@@ -1,0 +1,16 @@
+check,proves,offending_rows,detail,status
+no_duplicate_series_quarters,one value per series and quarter,0,duplicates,PASS
+quarterly_continuity_auto_delinquency,no missing quarters between 2003Q1 and 2026Q2,0,quarters found=94,PASS
+debt_composition_sums_to_total,components add to the reported total within 0.05 trillion,0,largest observed gap=0.02 trillion,PASS
+delinquency_status_sums_to_100,status shares add to 100 within 0.5 points,0,sums range 99.9 to 100.2,PASS
+origination_bands_sum_to_total,score bands add to total originations within 0.25 billion,0,largest observed gap=0.1 billion (rounding),PASS
+percent_values_in_range,every percentage series sits between 0 and 100,0,values outside 0-100,PASS
+early_flow_not_below_serious_flow,new 90+ balances cannot exceed new 30+ balances (auto),0,quarters where 90+ flow > 30+ flow,PASS
+cross_sheet_agreement_flow_vs_age_total,Page 14 auto flow equals Page 26 all-ages total within 0.02 points,0,largest observed difference=0.01 points over 94 quarters,PASS
+fred_no_duplicate_months,month is unique,0,rows=333,PASS
+fred_no_missing_months,1999-01 to 2026-09 is 333 consecutive months,0,months=333,PASS
+fred_core_series_complete,"used and new vehicle CPI, sales, rates have no gaps",0,rows with a null core series,PASS
+fred_known_gaps_documented,unemployment and all-items CPI are missing only for 2025-10,0,unexpected missing months,PASS
+fred_latest_month,"data run to the latest published month, 2026-09",0,latest=2026-09-01,PASS
+used_cpi_extreme_monthly_moves,"months where used-vehicle CPI moved more than 6 percent (reviewed, kept)",0,"4 months moved >6% (2021 reopening and 2009 rebound); kept, not winsorized",PASS
+fred_covers_every_nyfed_quarter,each NY Fed quarter since 2003 has at least 2 FRED months,0,quarters with <2 FRED months,PASS

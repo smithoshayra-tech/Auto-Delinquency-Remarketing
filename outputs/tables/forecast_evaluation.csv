@@ -1,0 +1,6 @@
+model,mae_points,n_forecasts,vs_naive_pct
+Same as now (naive),0.24914893617021272,47,0.0
+Ridge: inflow only,0.24086073887377224,47,-3.326603526325389
+Ridge: + early-stage inflow,0.4089130003435501,47,64.12391986461878
+"Ridge: + unemployment, rates",0.26998964906173145,47,8.364760938525873
+"Ridge: + used prices, mix",0.3358664593432276,47,34.80549606431853
