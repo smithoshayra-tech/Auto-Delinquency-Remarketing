@@ -8,15 +8,43 @@ Everything below is computed from public data. No figure is typed by hand: each 
 
 ## Findings
 
+![Stock vs inflow](outputs/figures/fig01_stock_vs_flow.png)
+
 1. **The record is real but modest against 2010.** 90+ stock is 5.49% of auto balances vs 5.27% at the 2010 peak. In dollars that is about $94B seriously delinquent, up 43% from $66B at the end of 2019 (balances grew too).
 2. **Versus 2019, the stock is up 16% because new problem balances are up 28%** (3.00% vs 2.35% annualized), partly offset by shorter time in delinquency (persistence 1.83 years vs 2.02, -9%).
 3. **Since mid-2024 the story flips.** From 2024Q2 the log change in the stock is 21 points; 81% of it is persistence rising from a 1.54-year low, 19% is inflow. Inflow itself is up only 4% since 2024Q2. This agrees with the Philadelphia Fed's April 2026 finding that the stock of severe delinquencies is rising while the flow into it is fairly stable.
+
+![Decomposition of the change in the delinquent stock](outputs/figures/fig02_decomposition.png)
+
+![Persistence](outputs/figures/fig03_persistence.png)
+
 4. **Roll rate is the metric to watch.** 38.1% now vs 33.7% in 2019 and 24% in 2005. At industry scale, each point of roll rate is roughly $1.3B a year of balances reaching 90+; returning to the 2019 roll rate would be worth about $5.6B a year (approximation, see caveats).
+
+![Roll rate](outputs/figures/fig04_roll_rate.png)
+
 5. **It is broad, not one cohort.** Every age band is 21% to 33% above its 2019 level. The subprime share of new originations is 29%, vs 44% in 2006 and 32% in 2019, so credit mix is not the driver.
+
+![Age breadth](outputs/figures/fig05_age_breadth.png)
+
+![Subprime share of originations](outputs/figures/fig06_subprime_mix.png)
+
 6. **It is not unemployment.** Inflow is 3.00% with unemployment at 4.3%; in 2009 it was 3.24% with unemployment at 9.9%. This points to payment burden (loan size and price levels) rather than job losses, consistent with a Federal Reserve Board FEDS Note (Sept 2024) that attributes about 40% of the rise in two-year delinquency probability from end-2019 to end-2022 to higher monthly payments.
+
+![Unemployment decoupling](outputs/figures/fig10_unemployment_decoupling.png)
+
 7. **Remarketing exposure sits in the 2021-2023 vintages.** Used-vehicle CPI is 16% below its Feb-2022 peak, though still 30% above 2019. Against the price level when each vintage was written, 2021 is -2%, 2022 is -13% and 2023 is -6%. The 2018-2020 vintages are well above water. This is a market price indicator, not a loan-level loss estimate.
 8. **A further 10% drop in used prices is a $2.4B to $7.0B collateral-value hit** on the $94B seriously delinquent pool, depending on the share that ends in repossession and sale (25% to 75%, a scenario axis not in the data). Each 1% on the whole pool is $0.94B.
+
+![Used prices vs vintage](outputs/figures/fig07_vintage_prices.png)
+
+![Remarketing sensitivity](outputs/figures/fig08_remarketing_sensitivity.png)
+
 9. **Forecasting from public aggregates adds nothing.** Four-quarter-ahead rolling-origin tests (origins 2013-12 to 2025-06) show the best model (Ridge: inflow only) at MAE 0.241 vs 0.249 for "same as now" (-3%). Adding unemployment, rates, used prices or credit mix made it worse. The practical read: monitor roll rate and persistence rather than trusting a macro forecast.
+
+
+![Forecast evaluation](outputs/figures/fig09_forecast_eval.png)
+
+**Interactive dashboard:** open `dashboard/index.html` in a browser after downloading the repo. **Executive brief:** `docs/executive_brief.pdf`.
 
 ## Recommendations (for a collections and remarketing team)
 
